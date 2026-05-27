@@ -1,0 +1,64 @@
+// const newList = {
+    //     id:todoApp.length+1,
+    //     title,
+    //     description
+    // };
+    // todoApp.push(newList);
+    // console.log(todoApp);
+    // res.json(newList);
+
+// ------------------------------------------------------------------
+
+    // app.put("/updateList/:id", async (req, res) => {
+//     try {
+//         let list = await todoModel.findById(req.params.id);
+//         console.log(list);
+//         if (list != null) {
+//             list.title = req.body.title;
+//             list.description = req.body.description;
+//             await list.save();
+//             res.status(201).json(list);
+//         }
+
+//     } catch (error) {
+//         res.status(500).json({ message: error.message });
+//     }
+// })
+
+// ---------------------------------------------------------------------
+
+// app.delete("/deleteList/:id", async (req, res) => {
+//     try {
+//         let list = await todoModel.findById(req.params.id);
+//         console.log(list);
+
+//         if (list != null) {
+//             await todoModel.deleteOne();
+//             res.status(200).json({ message: "Deleted Successfully" });
+//         }
+//     }
+//     catch (error) {
+//         res.status(500).json({ error: error.message });
+//     }
+// });
+
+// -----------------------------------------------------------------
+
+// Rule of thumb in MongoDB
+
+// ✅ Embed (inside user) when:
+
+// small data
+// rare updates
+// always fetched together
+
+// ✅ Separate collection + reference when:
+
+// large data
+// many records
+// frequent CRUD
+// one-to-many relation
+
+// For Todo app, 
+// separate task collection is the better design. 
+// It scales better and the code stays simpler as features grow.

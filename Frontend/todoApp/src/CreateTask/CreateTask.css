@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.createTask_overallDiv{
+    height: 100vh;
+    padding: 10px;
+}
+.signoutBtn{
+    position: relative;
+    top: 50px;
+    right: 150px;
+    float: right;
+    background-color: rgb(247, 247, 88);;
+}
+.createTask_container {
+     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 70vh;
+    border: none;
+    box-shadow: 0px 0px 10px;
+    
+}
+
+.title {
+    /* background-color: #6b5acd; */
+    background-color: rgb(247, 247, 88);
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 10px;
+    /* color: white; */
+    width: 100%;
+}
+.taskForm{
+    margin: 10px;
+    /* padding: 10px 20px; */
+    letter-spacing: 2px;
+    font-weight: bolder;
+}
+label{
+    margin: 10px;
+    letter-spacing: 2px;
+    padding: 5px;
+    width: 90%;
+}
+input,textarea{
+    margin: 10px;
+    letter-spacing: 2px;
+    padding: 5px;
+    width: 90%;
+    border: 1px solid #6b5acd;
+     box-shadow: 0px 0px 2px;
+
+}
+input:focus, textarea:focus{
+    outline: none;
+}
+.btn{
+    border: none;
+    /* background-color: #6b5acd; */
+    background-color: rgb(247, 247, 88);
+    padding: 10px;
+    /* color: white; */
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+form div{
+    text-align: center;
+}
