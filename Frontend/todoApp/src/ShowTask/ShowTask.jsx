@@ -10,7 +10,7 @@ export function ShowTask(props) {
     }
 
     const deleteList = (id) => {
-        fetch(`http://localhost:3005/deleteList/${id}`,{
+        fetch(`https://todo-app-f0gm.onrender.com/${id}`,{
             method: "DELETE",
         })
         .then(()=>{
@@ -24,7 +24,7 @@ export function ShowTask(props) {
 
     useEffect(function () {
         //getList Api call
-        fetch("http://localhost:3005/getList", {
+        fetch("https://todo-app-f0gm.onrender.com/getList", {
             method: "GET",
             headers: { "content-type": "application/json",
                  'authorization': `Bearer ${localStorage.getItem("token")}`

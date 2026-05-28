@@ -4,16 +4,18 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
+const dotenv = require("dotenv").config();
 
 const app = express();
-const portNo = 3005;
+// const portNo = 3005;
+const portNo = process.env.PORT || 3005;
 // let todoApp = [];
 
 
 //-----------------------------CREATING DATABASE------------------------//
 
-mongoose.connect("mongodb://127.0.0.1:27017/todoDB")
+// mongoose.connect("mongodb://127.0.0.1:27017/todoDB")
+mongoose.connect(process.env.MONGO_URL)
 
     .then(() => {
         console.log("MongoDB Connected Successfully");
@@ -40,7 +42,10 @@ const todoSchema = new mongoose.Schema({
 
 const todoModel = mongoose.model("todoApp", todoSchema);
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    origin : "*"
+}));
 
 //-----------------------------MIDDLEWARE------------------------------------//
 
@@ -53,7 +58,7 @@ const verifyToken = (req, res, next) => {
     }
     const token = tokenHeader.split(" ")[1];
     try {
-        const decodedToken = jwt.verify(token, "secretkey_123");
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
         req.user = decodedToken;
         next();
     } catch (error) {
@@ -99,7 +104,7 @@ app.post("/signIn", async (req, res) => {
             //check password
             let result = await bcrypt.compare(userLogin.password, loginDetails.password);
             if (result == true) {
-                const token = jwt.sign({ id: loginDetails._id }, "secretkey_123", { expiresIn: "1d" })
+                const token = jwt.sign({ id: loginDetails._id }, process.env.JWT_SECRET, { expiresIn: "1d" })
                 res.json({ token });
             }
             else {

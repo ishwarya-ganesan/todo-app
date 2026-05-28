@@ -19,7 +19,7 @@ export default function CreateTask(props) {
         e.preventDefault();
 
         if (!temp._id) {
-            fetch("http://localhost:3005/addList", {
+            fetch("https://todo-app-f0gm.onrender.com/addList", {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json',
@@ -42,7 +42,7 @@ export default function CreateTask(props) {
                 })
         }
         else {
-            fetch(`http://localhost:3005/updateList/${temp._id}`, {
+            fetch(`https://todo-app-f0gm.onrender.com/updateList/${temp._id}`, {
                 method: "PUT",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(temp)

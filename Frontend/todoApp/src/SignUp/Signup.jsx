@@ -12,7 +12,8 @@ export default function Signup() {
      const handleSignup = (e) => {
         e.preventDefault();
 
-        fetch("http://localhost:3005/signUp", {
+        fetch("https://todo-app-f0gm.onrender.com/signUp", {
+        
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(signupDetails)
