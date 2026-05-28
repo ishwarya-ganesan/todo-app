@@ -1,10 +1,11 @@
 //import
+const dotenv = require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv").config();
+
 
 const app = express();
 // const portNo = 3005;
@@ -44,7 +45,7 @@ const todoModel = mongoose.model("todoApp", todoSchema);
 
 // app.use(cors());
 app.use(cors({
-    origin : "*"
+    origin : "https://6a1800873b399007ce8bd488--mytodo-app-tracker.netlify.app/"
 }));
 
 //-----------------------------MIDDLEWARE------------------------------------//
