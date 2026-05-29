@@ -45,7 +45,7 @@ const todoModel = mongoose.model("todoApp", todoSchema);
 
 // app.use(cors());
 app.use(cors({
-    origin : "https://6a1920dc927476d3833624a1--mytodo-app-tracker.netlify.app"
+    origin : "https://6a192c21705505ef7fbdf3c9--mytodo-app-tracker.netlify.app/"
 }));
 
 //-----------------------------MIDDLEWARE------------------------------------//
