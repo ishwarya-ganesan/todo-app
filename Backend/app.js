@@ -44,7 +44,7 @@ const todoSchema = new mongoose.Schema({
 const todoModel = mongoose.model("todoApp", todoSchema);
 
 app.use(cors({
-    origin : "https://6a193704ac741000086eadb9--mytodo-app-tracker.netlify.app"
+    origin : "https://6a194d3cc67d603c7e6b44f8--mytodo-app-tracker.netlify.app"
 }));
 
 console.log("CORS URL:",
