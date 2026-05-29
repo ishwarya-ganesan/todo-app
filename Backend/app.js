@@ -45,8 +45,8 @@ const todoModel = mongoose.model("todoApp", todoSchema);
 
 app.use(cors({
     origin : "https://6a193704ac741000086eadb9--mytodo-app-tracker.netlify.app"
-    
 }));
+
 console.log("CORS URL:",
 "https://6a193704ac741000086eadb9--mytodo-app-tracker.netlify.app");
 
@@ -108,17 +108,17 @@ app.post("/signIn", async (req, res) => {
             let result = await bcrypt.compare(userLogin.password, loginDetails.password);
             if (result == true) {
                 const token = jwt.sign({ id: loginDetails._id }, process.env.JWT_SECRET, { expiresIn: "1d" })
-                res.json({ token });
+                res.status(200).json({ token });
             }
             else {
-                res.json({ message: "password doesn't match" });
+                res.status(401).json({ message: "password doesn't match" });
             }
         } else {
-            res.json({ message: "Invalid Credentials" });
+            res.status(400).json({ message: "Invalid Credentials" });
         }
     }
     catch (error) {
-        res.json({ message: error });
+        res.status(500).json({ message: error });
     }
 })
 
@@ -134,14 +134,14 @@ app.post("/signUp", async (req, res) => {
             hashedPassword = await bcrypt.hash(newUser.password, 10);
             newUser.password = hashedPassword;
             await newUser.save();
-            res.json(newUser);
+            res.status(200).json(newUser);
             console.log(newUser);
         } else {
-            res.json({ message: "EmailId already exist" });
+            res.status(409).json({ message: "EmailId already exist" });
         }
     }
     catch (error) {
-        res.json({ message: error });
+        res.status(400).json({ message: error.message });
     }
 })
 
